@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="characterClass"
+            type="String"/>
+        <variable
+            name="character"
+            type="com.example.arty.androidparallaxpager.model.Character"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/bg_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/bg_rounded_corners">
+            <ImageView
+                android:id="@+id/iv_cardview_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:scaleType="center" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:background="#FFFFFF"/>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/iv_overhanging_char"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="top"
+            android:layout_marginBottom="49dp"
+            android:scaleType="centerInside"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_character_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|top"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_char_class"
+            android:padding="8dp"
+            android:text="@{characterClass}"
+            app:layout_constraintBottom_toTopOf="@+id/bg_card"
+            app:layout_constraintEnd_toEndOf="@+id/bg_card"
+            app:layout_constraintStart_toStartOf="@+id/bg_card"
+            app:layout_constraintTop_toTopOf="@+id/bg_card" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="64dp"
+            android:background="@color/colorCardBackground"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_card"
+            app:layout_constraintEnd_toEndOf="@+id/bg_card"
+            app:layout_constraintStart_toStartOf="@+id/bg_card"
+            app:layout_constraintTop_toTopOf="@+id/bg_card">
+            <LinearLayout
+                android:id="@+id/perks_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="20dp"
+                tools:layout_editor_absoluteY="417dp"/>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/tv_character_name"
+            style="@style/styleCharName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{character.title}"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/space"
+            app:layout_constraintEnd_toEndOf="@+id/bg_card"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bg_card" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/bg_card"
+            app:layout_constraintTop_toTopOf="@+id/scrollView2"
+            tools:layout_editor_absoluteX="173dp" />
+
+        <TextView
+            android:id="@+id/tv_character_name_small"
+            style="@style/styleCharNameSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{character.title}"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="@+id/bg_card"
+            app:layout_constraintStart_toStartOf="@+id/scrollView2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_character_class" />
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/bg_card"
+            app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+            app:layout_constraintStart_toEndOf="@+id/scrollView2"
+            app:layout_constraintTop_toTopOf="@+id/bg_card"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_close" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
+
+
