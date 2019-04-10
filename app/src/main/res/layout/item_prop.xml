@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="title"
-            type="String"/>
-        <variable
-            name="value"
-            type="String"/>
+            name="stat"
+            type="com.example.arty.androidparallaxpager.model.champion.Stat"/>
     </data>
 
     <LinearLayout
@@ -18,13 +16,13 @@
             style="@style/styleCharPropertiesTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{title}" />
+            app:statName="@{stat}" />
 
         <TextView
             style="@style/styleCharPropertiesDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{value}" />
+            app:statValue="@{stat}" />
 
     </LinearLayout>
 </layout>
