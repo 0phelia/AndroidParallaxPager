@@ -10,7 +10,7 @@ class PageTransformer(private val viewPager: ViewPager, private val cardAdapter:
         ViewPager.OnPageChangeListener,
         ViewPager.PageTransformer {
 
-    val argbEvaluator = ArgbEvaluator()
+    private val argbEvaluator = ArgbEvaluator()
 
     init {
         viewPager.addOnPageChangeListener(this)
@@ -21,8 +21,8 @@ class PageTransformer(private val viewPager: ViewPager, private val cardAdapter:
             val shiftSmall = position * viewPager.width / 3
             val shiftModerate = position * viewPager.width
 
-             DataBindingUtil.getBinding<ItemPageBinding>(page)?.apply {
-                tvCharacterName.translationX =  shiftSmall
+            DataBindingUtil.getBinding<ItemPageBinding>(page)?.apply {
+                tvCharacterName.translationX = shiftSmall
                 perksContainer.translationX = shiftSmall
                 tvCharacterClass.translationX = shiftSmall
                 ivOverhangingChar.translationX = shiftModerate
@@ -33,10 +33,10 @@ class PageTransformer(private val viewPager: ViewPager, private val cardAdapter:
     override fun onPageScrolled(pos: Int, positionOffset: Float, positionOffsetPixels: Int) {
         cardAdapter.characterData.let {
             if (pos < it.size - 1) {
-                val col1 = it[pos].primaryColor
-                val col2 = it[pos + 1].primaryColor
+                val col1 = it[pos].assets.primaryColor
+                val col2 = it[pos + 1].assets.primaryColor
                 val color = argbEvaluator.evaluate(positionOffset, col1, col2) as Int
-                viewPager.setBackgroundColor( color )
+                viewPager.setBackgroundColor(color)
             }
         }
     }
