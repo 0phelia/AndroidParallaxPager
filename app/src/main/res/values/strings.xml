@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">AndroidParallaxPager</string>
+    <string name="class_name_mage">Mage</string>
+    <string name="class_name_tank">Tank</string>
+    <string name="class_name_fighter">Fighter</string>
+    <string name="class_name_assasin">Assassin</string>
+    <string name="stat_description">%1$s (%2$s per level)</string>
+
+    <string name="vastayan_grace">Vastayan Grace</string>
+    <string name="orb_of_deception">Orb Of Deception</string>
+    <string name="fox_fire">Fox Fire</string>
+    <string name="charm">Charm</string>
+    <string name="spirit_rush">Spirit Rush</string>
+    <string name="noxious_slipstream">Noxious Slipstream</string>
+    <string name="poison_trail">Poison Trail</string>
+    <string name="mega_adhesive">Mega Adhesive</string>
+    <string name="fling">Fling</string>
+    <string name="insanity_potion">Insanity Potion</string>
+    <string name="void_shift">Void Shift</string>
+    <string name="call_of_the_void">Call Of The Void</string>
+    <string name="void_swarm">Void Sworm</string>
+    <string name="malefic_visions">Malefic Visions</string>
+    <string name="nether_grasp">Nether Grasp</string>
 </resources>
