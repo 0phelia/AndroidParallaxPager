@@ -13,10 +13,9 @@ import android.widget.FrameLayout
 import android.widget.ImageButton
 import com.example.arty.androidparallaxpager.databinding.ItemPageBinding
 import com.example.arty.androidparallaxpager.databinding.ItemPropBinding
-import com.example.arty.androidparallaxpager.model.Character
+import com.example.arty.androidparallaxpager.model.champion.Champion
 
-
-class PageAdapter(val characterData: List<Character>) : PagerAdapter() {
+class PageAdapter(val characterData: List<Champion>) : PagerAdapter() {
 
     var setCollapsed =  ConstraintSet()
     var setExpanded =  ConstraintSet()
@@ -38,9 +37,10 @@ class PageAdapter(val characterData: List<Character>) : PagerAdapter() {
 
     private fun setupTransitionAnimation(constraintLayout: ConstraintLayout, bgCard: FrameLayout, btnClose: ImageButton) {
 
-        val transition = AutoTransition()
-        transition.duration = 250
-        transition.ordering = AutoTransition.ORDERING_TOGETHER
+        val transition = AutoTransition().apply {
+            duration = 250
+            ordering = AutoTransition.ORDERING_TOGETHER
+        }
 
         setCollapsed.clone(constraintLayout)
         setExpanded.clone(constraintLayout.context, R.layout.item_page_expanded)
@@ -56,22 +56,18 @@ class PageAdapter(val characterData: List<Character>) : PagerAdapter() {
         }
     }
 
-    private fun populateStats(binding: ItemPageBinding, character: Character, context: Context) {
-        character.stats.forEach {
+    private fun populateStats(binding: ItemPageBinding, character: Champion, context: Context) {
+        character.stats.forEach { stat ->
             val prop = ItemPropBinding.inflate(LayoutInflater.from(context))
-            prop.title = it.title
-            prop.value = it.value
+            prop.stat = stat
             binding.perksContainer.addView(prop.root)
         }
     }
 
-    private fun bindView(binding: ItemPageBinding, char: Character) {
+    private fun bindView(binding: ItemPageBinding, char: Champion) {
         binding.apply {
             character = char
-            characterClass = char.classes.joinToString(", ")
-            ivOverhangingChar.setImageResource(char.characterRes)
-            ivCardviewBackground.setImageResource(char.backgroundRes)
-            bgCard.setClipToOutline(true)
+            bgCard.clipToOutline = true
         }
     }
 
