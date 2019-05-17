@@ -1,14 +1,12 @@
 ## AndroidParallaxPager
+
 Simple parallax effect demo using PageTransformer and ConstraintLayout.
 
 <p align="center">
   <a href="https://vimeo.com/292723496">
-    <img align="middle" src="screenshot-min.png"  width="290" height="520">
+    <img align="middle" src="screenshot-min.jpg" width="640" height="410">
   </a>
 </p>
-
-
-
 
 
 ## Credits
